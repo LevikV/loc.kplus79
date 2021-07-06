@@ -7,7 +7,7 @@ class ControllerExtensionModuleVttImport extends Controller {
         $password = '211212'; // пароль
 
         //Загружаем все данные с сервера поставщика
-        $result = $this->load_alldata();
+        $result = $this->load_alldata($wsdl_url, $login, $password);
 
         echo '<pre>';
         print_r($result);
@@ -16,9 +16,8 @@ class ControllerExtensionModuleVttImport extends Controller {
     }
 
     //Функция загрузки всех товаров с портала ВТТ
-    function load_alldata()
+    function load_alldata($wsdl_url, $login, $password)
     {
-        global $wsdl_url, $login, $password;
         $params = array("login" => $login , "password" => $password);
         try
         {
